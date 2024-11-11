@@ -17,12 +17,14 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.components.CoinListItem
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.components.previewCoin
+import com.plcoding.cryptotracker.crypto.presentation.coin_list.viewmodel.actions.CoinListActions
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.viewmodel.state.CoinListState
 import com.plcoding.cryptotracker.ui.theme.CryptoTrackerTheme
 
 @Composable
 fun CoinListScreen(
     state: CoinListState,
+    onAction: (CoinListActions) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -43,7 +45,9 @@ fun CoinListScreen(
             items(state.coins) { coinUi ->
                 CoinListItem(
                     coinUi = coinUi,
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        onAction(CoinListActions.OnCoinClick(coinUi))
+                    },
                     modifier = Modifier.fillMaxWidth()
                 )
                 HorizontalDivider()
@@ -63,7 +67,8 @@ private fun CoinListScreenPreview() {
                 }
             ),
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.background)
+                .background(MaterialTheme.colorScheme.background),
+            onAction = { }
         )
     }
 }

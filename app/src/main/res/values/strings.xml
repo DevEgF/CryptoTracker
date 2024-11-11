@@ -6,4 +6,7 @@
     <string name="error_somenthing_went_wrong">Something went wrong. Please try again later.</string>
     <string name="error_serialization">Couldn\'t serialize or deserialize data.</string>
     <string name="unknown_error">Oops, something wrong</string>
+    <string name="market_cap">Market Cap</string>
+    <string name="price">Price</string>
+    <string name="change_last_24h">Change Last 24h</string>
 </resources>

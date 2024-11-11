@@ -38,7 +38,11 @@ class CoinListViewModel(
     fun onAction(event: CoinListActions) {
         when(event) {
             is CoinListActions.OnCoinClick -> {
-
+                _state.update {
+                    it.copy(
+                        selectedCoin = event.coinUi
+                    )
+                }
             }
         }
     }
